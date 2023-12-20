@@ -22,7 +22,7 @@ import org.w3c.dom.NodeList;
 
 public class XmpMetaDataToJsonValidator {
 
-    public static Map<String, String> extractMetadata(String filePath) {
+ public static Map<String, String> extractMetadata(String filePath) {
         Map<String, String> metadataMap = new HashMap<>();
         try {
             File file = new File(filePath);
@@ -47,6 +47,7 @@ public class XmpMetaDataToJsonValidator {
         return metadataMap;
     }
 
+
     public static void main(String[] args) {
         String filePath = "src/main/resources/SampleXMP.xmp";
         Map<String, String> metadataMap = extractMetadata(filePath);
@@ -69,10 +70,19 @@ public class XmpMetaDataToJsonValidator {
             System.out.println(jsonObject.toJSONString());
 
             // Check if each metadata key exists in the JSON file
-            System.out.println("\nKey existence in JSON file:");
+          /*  System.out.println("\nKey existence in JSON file:");
             for (Map.Entry<String, String> entry : metadataMap.entrySet()) {
                 String key = entry.getKey();
                 boolean keyExists = jsonObject.containsKey(key);
+                System.out.println(key + " exists in JSON file: " + keyExists);
+            }
+
+            */
+
+            System.out.println("\nKey existence in JSON file:");
+            for (Map.Entry<String, String> entry : metadataMap.entrySet()) {
+                String key = entry.getKey();
+                boolean keyExists = jsonObject.keySet().stream().anyMatch(jsonKey -> jsonKey.toString().endsWith(key) || jsonKey.toString().endsWith("}" + key));
                 System.out.println(key + " exists in JSON file: " + keyExists);
             }
         } catch (IOException | ParseException e) {

@@ -11,6 +11,9 @@ import java.util.Map;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.tadigital.XmpMetadataExtractor;
+
+import static org.tadigital.XmpMetadataExtractor.extractMetadata;
 
 /**
  * This class provides methods to compare extracted xmp metadata to external JSON File
@@ -22,30 +25,8 @@ import org.w3c.dom.NodeList;
 
 public class XmpMetaDataToJsonValidator {
 
- public static Map<String, String> extractMetadata(String filePath) {
-        Map<String, String> metadataMap = new HashMap<>();
-        try {
-            File file = new File(filePath);
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(file);
-            doc.getDocumentElement().normalize();
-            NodeList nodeList = doc.getElementsByTagName("*");
-            for (int i = 0; i < nodeList.getLength(); i++) {
-                Node node = nodeList.item(i);
-                if (node.getNodeType() == Node.ELEMENT_NODE) {
-                    String nodeName = node.getNodeName();
-                    String nodeValue = node.getTextContent().trim();
-                    if (!nodeName.isEmpty() && !nodeValue.isEmpty()) {
-                        metadataMap.put(nodeName, nodeValue);
-                    }
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return metadataMap;
-    }
+
+
 
 
     public static void main(String[] args) {

@@ -60,6 +60,8 @@ public class XmpMetadataExtractor {
         return metadataMap;
     }
 
+
+
     public static void main(String[] args) {
         String filePath = "src/main/resources/SampleXMP.xmp";
         Map<String, String> metadataMap = extractMetadata(filePath);

@@ -11,13 +11,19 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 
+/**
+ * This class provides methods to save json from restful get API
+ *
+ * @author abhishek.bhardwaj
+ *
+ */
+
 public class ApiToJsonExtractor {
 
     public static void main(String[] args) {
-        // Replace this URL with the actual API endpoint
+
         String apiUrl = "https://api.publicapis.org/entries";
 
-        // Replace this path with the desired folder path
         String folderPath = "src/main/resources/";
 
         try {

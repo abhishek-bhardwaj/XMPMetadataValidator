@@ -4,14 +4,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import java.io.*;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import java.util.HashMap;
 import java.util.Map;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.tadigital.XmpMetadataExtractor;
+
 
 import static org.tadigital.XmpMetadataExtractor.extractMetadata;
 

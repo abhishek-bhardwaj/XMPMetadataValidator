@@ -1,5 +1,5 @@
 # XMP Metadata Extractor
-
+An XMP (Extensible Metadata Platform) file is a text file that stores metadata, such as editing settings and other information, about a digital asset, like a raw image file, alongside the original file
 This Java class provides methods to extract metadata from an XMP file. The extracted metadata is stored in a Map.
 
 ## Usage
